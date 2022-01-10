@@ -4,11 +4,18 @@
 package com.imjava.dbshow.db;
 
 
-import com.imjava.dbshow.db.tables.Metrics;
-import com.imjava.dbshow.db.tables.records.MetricsRecord;
+import com.imjava.dbshow.db.tables.Data;
+import com.imjava.dbshow.db.tables.FirstIndex;
+import com.imjava.dbshow.db.tables.SecondIndex;
+import com.imjava.dbshow.db.tables.ThirdIndex;
+import com.imjava.dbshow.db.tables.records.DataRecord;
+import com.imjava.dbshow.db.tables.records.FirstIndexRecord;
+import com.imjava.dbshow.db.tables.records.SecondIndexRecord;
+import com.imjava.dbshow.db.tables.records.ThirdIndexRecord;
 
 import javax.annotation.Generated;
 
+import org.jooq.ForeignKey;
 import org.jooq.Identity;
 import org.jooq.UniqueKey;
 import org.jooq.impl.Internal;
@@ -32,28 +39,49 @@ public class Keys {
     // IDENTITY definitions
     // -------------------------------------------------------------------------
 
-    public static final Identity<MetricsRecord, Integer> IDENTITY_METRICS = Identities0.IDENTITY_METRICS;
+    public static final Identity<DataRecord, Integer> IDENTITY_DATA = Identities0.IDENTITY_DATA;
+    public static final Identity<FirstIndexRecord, Integer> IDENTITY_FIRST_INDEX = Identities0.IDENTITY_FIRST_INDEX;
+    public static final Identity<SecondIndexRecord, Integer> IDENTITY_SECOND_INDEX = Identities0.IDENTITY_SECOND_INDEX;
+    public static final Identity<ThirdIndexRecord, Integer> IDENTITY_THIRD_INDEX = Identities0.IDENTITY_THIRD_INDEX;
 
     // -------------------------------------------------------------------------
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final UniqueKey<MetricsRecord> KEY_METRICS_PRIMARY = UniqueKeys0.KEY_METRICS_PRIMARY;
+    public static final UniqueKey<DataRecord> KEY_DATA_PRIMARY = UniqueKeys0.KEY_DATA_PRIMARY;
+    public static final UniqueKey<FirstIndexRecord> KEY_FIRST_INDEX_PRIMARY = UniqueKeys0.KEY_FIRST_INDEX_PRIMARY;
+    public static final UniqueKey<SecondIndexRecord> KEY_SECOND_INDEX_PRIMARY = UniqueKeys0.KEY_SECOND_INDEX_PRIMARY;
+    public static final UniqueKey<ThirdIndexRecord> KEY_THIRD_INDEX_PRIMARY = UniqueKeys0.KEY_THIRD_INDEX_PRIMARY;
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final ForeignKey<DataRecord, ThirdIndexRecord> DATA_THIRD_INDEX_ID_FK = ForeignKeys0.DATA_THIRD_INDEX_ID_FK;
+    public static final ForeignKey<SecondIndexRecord, FirstIndexRecord> SECOND_INDEX_FIRST_INDEX_ID_FK = ForeignKeys0.SECOND_INDEX_FIRST_INDEX_ID_FK;
+    public static final ForeignKey<ThirdIndexRecord, SecondIndexRecord> THIRD_INDEX_SECOND_INDEX_ID_FK = ForeignKeys0.THIRD_INDEX_SECOND_INDEX_ID_FK;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
     // -------------------------------------------------------------------------
 
     private static class Identities0 {
-        public static Identity<MetricsRecord, Integer> IDENTITY_METRICS = Internal.createIdentity(Metrics.METRICS, Metrics.METRICS.ID);
+        public static Identity<DataRecord, Integer> IDENTITY_DATA = Internal.createIdentity(Data.DATA, Data.DATA.ID);
+        public static Identity<FirstIndexRecord, Integer> IDENTITY_FIRST_INDEX = Internal.createIdentity(FirstIndex.FIRST_INDEX, FirstIndex.FIRST_INDEX.ID);
+        public static Identity<SecondIndexRecord, Integer> IDENTITY_SECOND_INDEX = Internal.createIdentity(SecondIndex.SECOND_INDEX, SecondIndex.SECOND_INDEX.ID);
+        public static Identity<ThirdIndexRecord, Integer> IDENTITY_THIRD_INDEX = Internal.createIdentity(ThirdIndex.THIRD_INDEX, ThirdIndex.THIRD_INDEX.ID);
     }
 
     private static class UniqueKeys0 {
-        public static final UniqueKey<MetricsRecord> KEY_METRICS_PRIMARY = Internal.createUniqueKey(Metrics.METRICS, "KEY_metrics_PRIMARY", Metrics.METRICS.ID);
+        public static final UniqueKey<DataRecord> KEY_DATA_PRIMARY = Internal.createUniqueKey(Data.DATA, "KEY_data_PRIMARY", Data.DATA.ID);
+        public static final UniqueKey<FirstIndexRecord> KEY_FIRST_INDEX_PRIMARY = Internal.createUniqueKey(FirstIndex.FIRST_INDEX, "KEY_first_index_PRIMARY", FirstIndex.FIRST_INDEX.ID);
+        public static final UniqueKey<SecondIndexRecord> KEY_SECOND_INDEX_PRIMARY = Internal.createUniqueKey(SecondIndex.SECOND_INDEX, "KEY_second_index_PRIMARY", SecondIndex.SECOND_INDEX.ID);
+        public static final UniqueKey<ThirdIndexRecord> KEY_THIRD_INDEX_PRIMARY = Internal.createUniqueKey(ThirdIndex.THIRD_INDEX, "KEY_third_index_PRIMARY", ThirdIndex.THIRD_INDEX.ID);
+    }
+
+    private static class ForeignKeys0 {
+        public static final ForeignKey<DataRecord, ThirdIndexRecord> DATA_THIRD_INDEX_ID_FK = Internal.createForeignKey(com.imjava.dbshow.db.Keys.KEY_THIRD_INDEX_PRIMARY, Data.DATA, "data_third_index_id_fk", Data.DATA.THIRD_INDEX_ID);
+        public static final ForeignKey<SecondIndexRecord, FirstIndexRecord> SECOND_INDEX_FIRST_INDEX_ID_FK = Internal.createForeignKey(com.imjava.dbshow.db.Keys.KEY_FIRST_INDEX_PRIMARY, SecondIndex.SECOND_INDEX, "second_index_first_index_id_fk", SecondIndex.SECOND_INDEX.FIRST_INDEX_ID);
+        public static final ForeignKey<ThirdIndexRecord, SecondIndexRecord> THIRD_INDEX_SECOND_INDEX_ID_FK = Internal.createForeignKey(com.imjava.dbshow.db.Keys.KEY_SECOND_INDEX_PRIMARY, ThirdIndex.THIRD_INDEX, "third_index_second_index_id_fk", ThirdIndex.THIRD_INDEX.SECOND_INDEX_ID);
     }
 }

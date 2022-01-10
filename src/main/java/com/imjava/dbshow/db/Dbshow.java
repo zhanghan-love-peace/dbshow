@@ -4,7 +4,10 @@
 package com.imjava.dbshow.db;
 
 
-import com.imjava.dbshow.db.tables.Metrics;
+import com.imjava.dbshow.db.tables.Data;
+import com.imjava.dbshow.db.tables.FirstIndex;
+import com.imjava.dbshow.db.tables.SecondIndex;
+import com.imjava.dbshow.db.tables.ThirdIndex;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +33,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Dbshow extends SchemaImpl {
 
-    private static final long serialVersionUID = 832110462;
+    private static final long serialVersionUID = 1127355979;
 
     /**
      * The reference instance of <code>dbshow</code>
@@ -38,9 +41,24 @@ public class Dbshow extends SchemaImpl {
     public static final Dbshow DBSHOW = new Dbshow();
 
     /**
-     * The table <code>dbshow.metrics</code>.
+     * The table <code>dbshow.data</code>.
      */
-    public final Metrics METRICS = com.imjava.dbshow.db.tables.Metrics.METRICS;
+    public final Data DATA = com.imjava.dbshow.db.tables.Data.DATA;
+
+    /**
+     * 一级指标
+     */
+    public final FirstIndex FIRST_INDEX = com.imjava.dbshow.db.tables.FirstIndex.FIRST_INDEX;
+
+    /**
+     * 二级指标
+     */
+    public final SecondIndex SECOND_INDEX = com.imjava.dbshow.db.tables.SecondIndex.SECOND_INDEX;
+
+    /**
+     * 三级指标
+     */
+    public final ThirdIndex THIRD_INDEX = com.imjava.dbshow.db.tables.ThirdIndex.THIRD_INDEX;
 
     /**
      * No further instances allowed
@@ -64,6 +82,9 @@ public class Dbshow extends SchemaImpl {
 
     private final List<Table<?>> getTables0() {
         return Arrays.<Table<?>>asList(
-            Metrics.METRICS);
+            Data.DATA,
+            FirstIndex.FIRST_INDEX,
+            SecondIndex.SECOND_INDEX,
+            ThirdIndex.THIRD_INDEX);
     }
 }

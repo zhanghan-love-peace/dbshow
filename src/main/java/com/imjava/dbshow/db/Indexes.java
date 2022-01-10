@@ -4,7 +4,10 @@
 package com.imjava.dbshow.db;
 
 
-import com.imjava.dbshow.db.tables.Metrics;
+import com.imjava.dbshow.db.tables.Data;
+import com.imjava.dbshow.db.tables.FirstIndex;
+import com.imjava.dbshow.db.tables.SecondIndex;
+import com.imjava.dbshow.db.tables.ThirdIndex;
 
 import javax.annotation.Generated;
 
@@ -30,13 +33,25 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
-    public static final Index METRICS_PRIMARY = Indexes0.METRICS_PRIMARY;
+    public static final Index DATA_DATA_THIRD_INDEX_ID_FK = Indexes0.DATA_DATA_THIRD_INDEX_ID_FK;
+    public static final Index DATA_PRIMARY = Indexes0.DATA_PRIMARY;
+    public static final Index FIRST_INDEX_PRIMARY = Indexes0.FIRST_INDEX_PRIMARY;
+    public static final Index SECOND_INDEX_PRIMARY = Indexes0.SECOND_INDEX_PRIMARY;
+    public static final Index SECOND_INDEX_SECOND_INDEX_FIRST_INDEX_ID_FK = Indexes0.SECOND_INDEX_SECOND_INDEX_FIRST_INDEX_ID_FK;
+    public static final Index THIRD_INDEX_PRIMARY = Indexes0.THIRD_INDEX_PRIMARY;
+    public static final Index THIRD_INDEX_THIRD_INDEX_SECOND_INDEX_ID_FK = Indexes0.THIRD_INDEX_THIRD_INDEX_SECOND_INDEX_ID_FK;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
     // -------------------------------------------------------------------------
 
     private static class Indexes0 {
-        public static Index METRICS_PRIMARY = Internal.createIndex("PRIMARY", Metrics.METRICS, new OrderField[] { Metrics.METRICS.ID }, true);
+        public static Index DATA_DATA_THIRD_INDEX_ID_FK = Internal.createIndex("data_third_index_id_fk", Data.DATA, new OrderField[] { Data.DATA.THIRD_INDEX_ID }, false);
+        public static Index DATA_PRIMARY = Internal.createIndex("PRIMARY", Data.DATA, new OrderField[] { Data.DATA.ID }, true);
+        public static Index FIRST_INDEX_PRIMARY = Internal.createIndex("PRIMARY", FirstIndex.FIRST_INDEX, new OrderField[] { FirstIndex.FIRST_INDEX.ID }, true);
+        public static Index SECOND_INDEX_PRIMARY = Internal.createIndex("PRIMARY", SecondIndex.SECOND_INDEX, new OrderField[] { SecondIndex.SECOND_INDEX.ID }, true);
+        public static Index SECOND_INDEX_SECOND_INDEX_FIRST_INDEX_ID_FK = Internal.createIndex("second_index_first_index_id_fk", SecondIndex.SECOND_INDEX, new OrderField[] { SecondIndex.SECOND_INDEX.FIRST_INDEX_ID }, false);
+        public static Index THIRD_INDEX_PRIMARY = Internal.createIndex("PRIMARY", ThirdIndex.THIRD_INDEX, new OrderField[] { ThirdIndex.THIRD_INDEX.ID }, true);
+        public static Index THIRD_INDEX_THIRD_INDEX_SECOND_INDEX_ID_FK = Internal.createIndex("third_index_second_index_id_fk", ThirdIndex.THIRD_INDEX, new OrderField[] { ThirdIndex.THIRD_INDEX.SECOND_INDEX_ID }, false);
     }
 }

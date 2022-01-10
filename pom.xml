@@ -16,7 +16,9 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <junit.version>5.8.2</junit.version>
         <jooq.version>3.12.3</jooq.version>
-        <mysql.url>jdbc:mysql://127.0.0.1:3306/dbshow</mysql.url>
+        <mysql.url>jdbc:mysql://129.211.91.153:3306/dbshow</mysql.url>
+        <mysql.user>dbshow</mysql.user>
+        <mysql.password>dbshow</mysql.password>
     </properties>
 
     <dependencies>
@@ -42,7 +44,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.25</version>
+            <version>8.0.23</version>
         </dependency>
         <dependency>
             <groupId>org.jooq</groupId>
@@ -68,8 +70,8 @@
                     <jdbc>
                         <driver>com.mysql.cj.jdbc.Driver</driver>
                         <url>${mysql.url}</url>
-                        <user>root</user>
-                        <password></password>
+                        <user>${mysql.user}</user>
+                        <password>${mysql.password}</password>
                     </jdbc>
                     <generator>
                         <database>

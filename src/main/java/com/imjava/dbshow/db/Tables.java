@@ -4,7 +4,10 @@
 package com.imjava.dbshow.db;
 
 
-import com.imjava.dbshow.db.tables.Metrics;
+import com.imjava.dbshow.db.tables.Data;
+import com.imjava.dbshow.db.tables.FirstIndex;
+import com.imjava.dbshow.db.tables.SecondIndex;
+import com.imjava.dbshow.db.tables.ThirdIndex;
 
 import javax.annotation.Generated;
 
@@ -23,7 +26,22 @@ import javax.annotation.Generated;
 public class Tables {
 
     /**
-     * The table <code>dbshow.metrics</code>.
+     * The table <code>dbshow.data</code>.
      */
-    public static final Metrics METRICS = Metrics.METRICS;
+    public static final Data DATA = Data.DATA;
+
+    /**
+     * 一级指标
+     */
+    public static final FirstIndex FIRST_INDEX = FirstIndex.FIRST_INDEX;
+
+    /**
+     * 二级指标
+     */
+    public static final SecondIndex SECOND_INDEX = SecondIndex.SECOND_INDEX;
+
+    /**
+     * 三级指标
+     */
+    public static final ThirdIndex THIRD_INDEX = ThirdIndex.THIRD_INDEX;
 }
