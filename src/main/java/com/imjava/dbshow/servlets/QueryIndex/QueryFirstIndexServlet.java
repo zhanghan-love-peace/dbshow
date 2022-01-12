@@ -22,7 +22,7 @@ public class QueryFirstIndexServlet extends HttpServlet {
 
         JSONObject returnObj = new JSONObject();
         returnObj.put("result", resultList);
-        returnObj.put("code", 0);
+        returnObj.put("code", 1);
         writer.println(returnObj);
 
         writer.flush();

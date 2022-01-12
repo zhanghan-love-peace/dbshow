@@ -42,7 +42,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ThirdIndex extends TableImpl<ThirdIndexRecord> {
 
-    private static final long serialVersionUID = -961235905;
+    private static final long serialVersionUID = -1780051362;
 
     /**
      * The reference instance of <code>dbshow.third_index</code>
@@ -70,7 +70,7 @@ public class ThirdIndex extends TableImpl<ThirdIndexRecord> {
     /**
      * The column <code>dbshow.third_index.second_index_id</code>.
      */
-    public final TableField<ThirdIndexRecord, Integer> SECOND_INDEX_ID = createField(DSL.name("second_index_id"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<ThirdIndexRecord, Integer> SECOND_INDEX_ID = createField(DSL.name("second_index_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * Create a <code>dbshow.third_index</code> table reference
